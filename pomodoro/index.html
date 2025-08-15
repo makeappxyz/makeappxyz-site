@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Focus - 航班番茄时钟</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="translations.js"></script>
+</head>
+<body>
+    <div class="language-selector">
+        <button id="languageToggle" aria-label="Change Language">
+            <span class="current-lang">中文</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3,5 6,8 9,5"></polyline>
+            </svg>
+        </button>
+        <div class="language-dropdown" id="languageDropdown">
+            <button data-lang="zh" class="lang-option active">中文</button>
+            <button data-lang="en" class="lang-option">English</button>
+            <button data-lang="ja" class="lang-option">日本語</button>
+        </div>
+    </div>
+
+    <div class="theme-toggle">
+        <button id="themeToggle" aria-label="切换主题">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="app_logo.png" alt="Flight Focus" class="nav-logo-img">
+                Flight Focus
+            </a>
+            <div class="nav-links">
+                <a href="#features" data-i18n="nav.features">功能特色</a>
+                <a href="#achievements" data-i18n="nav.achievements">成就系统</a>
+                <a href="#stats" data-i18n="nav.stats">数据分析</a>
+                <a href="#download" data-i18n="nav.download">下载</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="app-icon-container">
+                    <img src="app_logo.png" alt="Flight Focus" class="app-icon">
+                </div>
+                <h1 class="hero-title" data-i18n="hero.title">Flight Focus</h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">航班番茄时钟 - 开启你的专注飞行之旅</p>
+                <p class="hero-description" data-i18n-html="hero.description">
+                    将每次专注化作一次飞行，在真实航线中完成你的工作任务。<br>
+                    集体打卡，飞行模式，让专注成为一场不受打扰的旅程。
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://apps.apple.com/us/app/flightfocus/id6749649894" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 16.97 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
+                        </svg>
+                        <span data-i18n="hero.appStore">App Store</span>
+                    </a>
+                    <a href="https://testflight.apple.com/join/uxbTZS3U" class="btn btn-testflight">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        <span data-i18n="hero.testflight">TestFlight</span>
+                    </a>
+                    <a href="#features" class="btn btn-secondary" data-i18n="hero.learnMore">了解更多</a>
+                </div>
+                <div class="hero-badges">
+                    <div class="badge-item">
+                        <span class="badge-icon">🏆</span>
+                        <span class="badge-text" data-i18n="hero.badge1">Top 10 效率应用</span>
+                    </div>
+                    <div class="badge-item">
+                        <span class="badge-icon">⭐</span>
+                        <span class="badge-text" data-i18n="hero.badge2">4.9 用户评分</span>
+                    </div>
+                    <div class="badge-item">
+                        <span class="badge-icon">🌍</span>
+                        <span class="badge-text" data-i18n="hero.badge3">全球 50+ 国家</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="flight-card">
+                        <div class="flight-header">
+                            <span class="flight-number" data-i18n="flight.flightNumber">FF2025</span>
+                            <span class="flight-status" data-i18n="flight.status">飞行中</span>
+                        </div>
+                        <div class="flight-route">
+                            <div class="city">
+                                <div class="city-code">PEK</div>
+                                <div class="city-name" data-i18n="flight.beijing">北京</div>
+                            </div>
+                            <div class="flight-path">
+                                <div class="plane-icon">✈️</div>
+                                <div class="path-line"></div>
+                            </div>
+                            <div class="city">
+                                <div class="city-code">SFO</div>
+                                <div class="city-name" data-i18n="flight.sanFrancisco">旧金山</div>
+                            </div>
+                        </div>
+                        <div class="flight-timer">
+                            <div class="timer-display">23:45</div>
+                            <div class="timer-label" data-i18n="flight.timeRemaining">剩余时间</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title" data-i18n="features.title">核心功能</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🛫</div>
+                    <h3 data-i18n="features.realRoute.title">真实航线体验</h3>
+                    <p data-i18n="features.realRoute.description">每次专注都是一次真实的飞行旅程，根据专注时长智能匹配全球航线，让你在工作中环游世界。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 data-i18n="features.flightMode.title">飞行模式专注</h3>
+                    <p data-i18n="features.flightMode.description">开启飞行模式，进入完全不受打扰的专注状态。支持白名单应用，确保重要通知不错过。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎫</div>
+                    <h3 data-i18n="features.ticketShare.title">机票收藏分享</h3>
+                    <p data-i18n="features.ticketShare.description">完成专注后生成精美机票，记录你的每一次飞行。支持自定义心情，一键分享到社交平台。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 data-i18n="features.dataAnalysis.title">专注数据分析</h3>
+                    <p data-i18n="features.dataAnalysis.description">详细的数据统计和可视化图表，帮你了解专注习惯，优化时间管理，提升工作效率。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <h3 data-i18n="features.icloudSync.title">iCloud 同步</h3>
+                    <p data-i18n="features.icloudSync.description">通过 CloudKit 和 iCloud Files 实现多设备无缝同步，随时随地继续你的专注之旅。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌙</div>
+                    <h3 data-i18n="features.darkMode.title">深色模式</h3>
+                    <p data-i18n="features.darkMode.description">精心设计的深色主题，夜间使用更护眼，让你在任何时间都能舒适地专注工作。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title" data-i18n="achievements.title">成就系统</h2>
+            <p class="section-subtitle" data-i18n="achievements.subtitle">丰富的成就体系，让每一次专注都充满动力</p>
+            
+            <div class="achievement-categories">
+                <div class="achievement-category">
+                    <h3 data-i18n="achievements.categories.mileage">飞行里程</h3>
+                    <div class="achievement-list">
+                        <div class="achievement-item">
+                            <div class="achievement-badge">🌍</div>
+                            <div class="achievement-info">
+                                <h4 data-i18n="achievements.items.globalTraveler.title">环球飞行家</h4>
+                                <p data-i18n="achievements.items.globalTraveler.description">累计飞行 40,000 公里</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-badge">🚀</div>
+                            <div class="achievement-info">
+                                <h4 data-i18n="achievements.items.spaceTraveler.title">太空旅行者</h4>
+                                <p data-i18n="achievements.items.spaceTraveler.description">累计飞行 100,000 公里</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="achievement-category">
+                    <h3 data-i18n="achievements.categories.cities">城市收集</h3>
+                    <div class="achievement-list">
+                        <div class="achievement-item">
+                            <div class="achievement-badge">🏙️</div>
+                            <div class="achievement-info">
+                                <h4 data-i18n="achievements.items.cityExplorer.title">城市探索者</h4>
+                                <p data-i18n="achievements.items.cityExplorer.description">到访 20 个不同城市</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-badge">🗺️</div>
+                            <div class="achievement-info">
+                                <h4 data-i18n="achievements.items.continentConqueror.title">大陆征服者</h4>
+                                <p data-i18n="achievements.items.continentConqueror.description">到访全部七大洲</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="achievement-category">
+                    <h3 data-i18n="achievements.categories.habits">专注习惯</h3>
+                    <div class="achievement-list">
+                        <div class="achievement-item">
+                            <div class="achievement-badge">🔥</div>
+                            <div class="achievement-info">
+                                <h4 data-i18n="achievements.items.streakMaster.title">连续飞行</h4>
+                                <p data-i18n="achievements.items.streakMaster.description">连续 30 天每日打卡</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-badge">🌅</div>
+                            <div class="achievement-info">
+                                <h4 data-i18n="achievements.items.earlyBird.title">早鸟飞行员</h4>
+                                <p data-i18n="achievements.items.earlyBird.description">凌晨 4-6 点完成专注</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="achievement-showcase">
+                <h3 data-i18n="achievements.showcase.title">成就卡片展示</h3>
+                <div class="cards-grid">
+                    <div class="achievement-card gold">
+                        <div class="card-header">
+                            <span class="card-level" data-i18n="achievements.showcase.gold.level">金牌成就</span>
+                            <span class="card-date">2025.12.01</span>
+                        </div>
+                        <div class="card-icon">✈️</div>
+                        <h4 data-i18n="achievements.showcase.gold.title">百次航班勇者</h4>
+                        <p data-i18n="achievements.showcase.gold.description">完成 100 次专注飞行</p>
+                    </div>
+                    <div class="achievement-card silver">
+                        <div class="card-header">
+                            <span class="card-level" data-i18n="achievements.showcase.silver.level">银牌成就</span>
+                            <span class="card-date">2025.11.15</span>
+                        </div>
+                        <div class="card-icon">🌏</div>
+                        <h4 data-i18n="achievements.showcase.silver.title">亚洲飞行家</h4>
+                        <p data-i18n="achievements.showcase.silver.description">访问亚洲 10 个城市</p>
+                    </div>
+                    <div class="achievement-card bronze">
+                        <div class="card-header">
+                            <span class="card-level" data-i18n="achievements.showcase.bronze.level">铜牌成就</span>
+                            <span class="card-date">2025.10.20</span>
+                        </div>
+                        <div class="card-icon">🎯</div>
+                        <h4 data-i18n="achievements.showcase.bronze.title">首次起飞</h4>
+                        <p data-i18n="achievements.showcase.bronze.description">完成第一次专注飞行</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats" class="stats">
+        <div class="container">
+            <h2 class="section-title" data-i18n="stats.title">数据分析</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-chart">
+                        <div class="chart-placeholder">
+                            <svg viewBox="0 0 100 60" class="mini-chart">
+                                <polyline points="5,50 20,35 35,40 50,25 65,30 80,15 95,20" 
+                                         fill="none" stroke="var(--primary-color)" stroke-width="2"/>
+                                <polyline points="5,50 20,35 35,40 50,25 65,30 80,15 95,20 95,55 5,55" 
+                                         fill="var(--primary-color)" opacity="0.1"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 data-i18n="stats.dailyTrend.title">每日专注趋势</h3>
+                    <p data-i18n="stats.dailyTrend.description">追踪你的每日专注时长变化，发现最佳工作时间</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-chart">
+                        <div class="chart-placeholder">
+                            <div class="pie-chart">
+                                <div class="pie-segment" style="--rotation: 0deg; --percentage: 35"></div>
+                                <div class="pie-segment" style="--rotation: 126deg; --percentage: 25"></div>
+                                <div class="pie-segment" style="--rotation: 216deg; --percentage: 20"></div>
+                                <div class="pie-segment" style="--rotation: 288deg; --percentage: 20"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 data-i18n="stats.timeDistribution.title">时间分布</h3>
+                    <p data-i18n="stats.timeDistribution.description">了解你在不同时间段的专注分布情况</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-chart">
+                        <div class="chart-placeholder">
+                            <div class="bar-chart">
+                                <div class="bar" style="--height: 70%"></div>
+                                <div class="bar" style="--height: 85%"></div>
+                                <div class="bar" style="--height: 60%"></div>
+                                <div class="bar" style="--height: 90%"></div>
+                                <div class="bar" style="--height: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 data-i18n="stats.weeklyReport.title">周专注报告</h3>
+                    <p data-i18n="stats.weeklyReport.description">每周专注时长统计，帮你保持稳定节奏</p>
+                </div>
+            </div>
+            
+            <div class="stats-summary">
+                <div class="summary-item">
+                    <div class="summary-number">1,234</div>
+                    <div class="summary-label" data-i18n="stats.summary.totalFlights">总飞行次数</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-number">567h</div>
+                    <div class="summary-label" data-i18n="stats.summary.totalHours">累计专注时长</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-number">89,234km</div>
+                    <div class="summary-label" data-i18n="stats.summary.totalDistance">飞行总里程</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-number">42</div>
+                    <div class="summary-label" data-i18n="stats.summary.citiesVisited">到访城市数</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download">
+        <div class="container">
+            <div class="download-content">
+                <h2 data-i18n="download.title">准备起飞了吗？</h2>
+                <p data-i18n="download.subtitle">立即下载 Flight Focus，开启你的专注飞行之旅</p>
+                <div class="download-buttons">
+                    <a href="https://apps.apple.com/us/app/flightfocus/id6749649894" class="app-store-btn">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0iYmxhY2siLz4KPHRleHQgeD0iNjAiIHk9IjI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5BcHAgU3RvcmU8L3RleHQ+Cjwvc3ZnPg==" alt="Download on App Store">
+                    </a>
+                    <a href="https://testflight.apple.com/join/uxbTZS3U" class="app-store-btn testflight-btn">
+                        <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="120" height="40" rx="8" fill="url(#testflightGradient)"/>
+                            <circle cx="20" cy="20" r="8" fill="white" opacity="0.9"/>
+                            <path d="M20 14l-4 4 1.5 1.5L20 17l2.5 2.5L24 18l-4-4z" fill="#007AFF"/>
+                            <text x="35" y="16" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600" fill="white">Download on</text>
+                            <text x="35" y="28" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700" fill="white">TestFlight</text>
+                            <defs>
+                                <linearGradient id="testflightGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#007AFF"/>
+                                    <stop offset="100%" style="stop-color:#5AC8FA"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </a>
+                </div>
+                <div class="platform-info">
+                    <span data-i18n="download.requirements">需要 iOS 17.0 或更高版本</span>
+                    <span>•</span>
+                    <span data-i18n="download.devices">支持 iPhone 和 iPad</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-simple">
+                <div class="footer-links-simple">
+                    <a href="privacy.html" data-i18n="footer.privacy">隐私政策</a>
+                    <a href="terms.html" data-i18n="footer.terms">服务条款</a>
+                    <a href="mailto:sudoku42game@gmail.com" data-i18n="footer.contact">联系我们</a>
+                </div>
+                <p class="footer-copyright" data-i18n="footer.copyright">&copy; 2025 Flight Focus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

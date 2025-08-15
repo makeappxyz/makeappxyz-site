@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>应用展示</title>
+  <title>应用展示 - App Gallery</title>
   <style>
     * {
       margin: 0;
@@ -20,6 +20,78 @@
       align-items: center;
       padding: 40px 20px;
       color: #1d1d1f;
+    }
+
+    .language-selector {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .lang-button {
+      background: white;
+      border: 1px solid #d2d2d7;
+      border-radius: 8px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: #1d1d1f;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .lang-button:hover {
+      background: #f5f5f7;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .language-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 8px;
+      background: white;
+      border: 1px solid #d2d2d7;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      min-width: 120px;
+    }
+
+    .language-dropdown.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .lang-option {
+      display: block;
+      width: 100%;
+      padding: 10px 16px;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #1d1d1f;
+      font-size: 14px;
+    }
+
+    .lang-option:hover {
+      background: #f5f5f7;
+    }
+
+    .lang-option.active {
+      background: #007AFF;
+      color: white;
     }
     
     .container {
@@ -70,11 +142,23 @@
       justify-content: center;
     }
     
+    .app-icon-container.gradient-purple {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
     .app-icon {
       width: 100px;
       height: 100px;
       border-radius: 22px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .app-icon.emoji {
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
     }
     
     .app-info {
@@ -125,13 +209,32 @@
       .apps-grid {
         grid-template-columns: 1fr;
       }
+
+      .language-selector {
+        top: 10px;
+        right: 10px;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="language-selector">
+    <button class="lang-button" id="languageToggle" aria-label="Change Language">
+      <span class="current-lang">中文</span>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="3,5 6,8 9,5"></polyline>
+      </svg>
+    </button>
+    <div class="language-dropdown" id="languageDropdown">
+      <button data-lang="zh" class="lang-option active">中文</button>
+      <button data-lang="en" class="lang-option">English</button>
+      <button data-lang="ja" class="lang-option">日本語</button>
+    </div>
+  </div>
+
   <div class="container">
-    <h1>应用展示</h1>
-    <p class="subtitle">探索我们精心打造的应用</p>
+    <h1 data-i18n="title">应用展示</h1>
+    <p class="subtitle" data-i18n="subtitle">探索我们精心打造的应用</p>
     
     <div class="apps-grid">
       <!-- 数独应用 -->
@@ -140,11 +243,25 @@
           <img src="/sudoku/app-icon.png" alt="数独" class="app-icon">
         </div>
         <div class="app-info">
-          <h2 class="app-name">数独</h2>
-          <p class="app-desc">
+          <h2 class="app-name" data-i18n="sudoku.name">数独</h2>
+          <p class="app-desc" data-i18n="sudoku.desc">
             优雅设计的数独游戏，具有6种难度等级、AI智能提示、成就系统等丰富功能。支持在线游戏和App Clip快速体验。
           </p>
-          <span class="app-link">了解更多</span>
+          <span class="app-link" data-i18n="learnMore">了解更多</span>
+        </div>
+      </a>
+      
+      <!-- Flight Focus 应用 -->
+      <a href="/pomodoro" class="app-card">
+        <div class="app-icon-container gradient-purple">
+          <img src="/pomodoro/app_logo.png" alt="Flight Focus" class="app-icon">
+        </div>
+        <div class="app-info">
+          <h2 class="app-name" data-i18n="flightfocus.name">Flight Focus</h2>
+          <p class="app-desc" data-i18n="flightfocus.desc">
+            航班番茄时钟 - 将每次专注化作一次飞行，在真实航线中完成工作任务。支持飞行模式、机票收藏、成就系统等丰富功能。
+          </p>
+          <span class="app-link" data-i18n="learnMore">了解更多</span>
         </div>
       </a>
       
@@ -152,8 +269,118 @@
     </div>
     
     <footer class="footer">
-      <p>© 2025 All rights reserved.</p>
+      <p data-i18n="copyright">© 2025 All rights reserved.</p>
     </footer>
   </div>
+
+  <script>
+    // 多语言翻译
+    const translations = {
+      zh: {
+        title: '应用展示',
+        subtitle: '探索我们精心打造的应用',
+        sudoku: {
+          name: '数独',
+          desc: '优雅设计的数独游戏，具有6种难度等级、AI智能提示、成就系统等丰富功能。支持在线游戏和App Clip快速体验。'
+        },
+        flightfocus: {
+          name: 'Flight Focus',
+          desc: '航班番茄时钟 - 将每次专注化作一次飞行，在真实航线中完成工作任务。支持飞行模式、机票收藏、成就系统等丰富功能。'
+        },
+        learnMore: '了解更多',
+        copyright: '© 2025 All rights reserved.'
+      },
+      en: {
+        title: 'App Gallery',
+        subtitle: 'Explore our carefully crafted apps',
+        sudoku: {
+          name: 'Sudoku',
+          desc: 'Elegantly designed Sudoku game with 6 difficulty levels, AI smart hints, achievement system and more. Supports online play and App Clip quick trial.'
+        },
+        flightfocus: {
+          name: 'Flight Focus',
+          desc: 'Flight Pomodoro Timer - Turn every focus session into a flight journey through real routes. Features flight mode, ticket collection, achievement system and more.'
+        },
+        learnMore: 'Learn More',
+        copyright: '© 2025 All rights reserved.'
+      },
+      ja: {
+        title: 'アプリギャラリー',
+        subtitle: '心を込めて作られたアプリをご覧ください',
+        sudoku: {
+          name: '数独',
+          desc: '6つの難易度レベル、AIスマートヒント、実績システムなどを備えたエレガントなデザインの数独ゲーム。オンラインプレイとApp Clipクイック体験に対応。'
+        },
+        flightfocus: {
+          name: 'Flight Focus',
+          desc: 'フライトポモドーロタイマー - 毎回の集中を実際のフライトルートで旅に変える。フライトモード、チケットコレクション、実績システムなどの機能。'
+        },
+        learnMore: '詳細を見る',
+        copyright: '© 2025 All rights reserved.'
+      }
+    };
+
+    // 获取当前语言
+    let currentLang = localStorage.getItem('language') || 'zh';
+
+    // 设置语言
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('language', lang);
+      document.documentElement.lang = lang;
+
+      const langNames = {
+        'zh': '中文',
+        'en': 'English',
+        'ja': '日本語'
+      };
+
+      document.querySelector('.current-lang').textContent = langNames[lang];
+
+      // 更新所有需要翻译的元素
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const keys = key.split('.');
+        let value = translations[lang];
+        for (const k of keys) {
+          value = value[k];
+        }
+        if (value) {
+          element.textContent = value;
+        }
+      });
+
+      // 更新选中状态
+      document.querySelectorAll('.lang-option').forEach(option => {
+        option.classList.toggle('active', option.dataset.lang === lang);
+      });
+    }
+
+    // 语言切换器事件
+    const languageToggle = document.getElementById('languageToggle');
+    const languageDropdown = document.getElementById('languageDropdown');
+
+    languageToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      languageDropdown.classList.toggle('show');
+    });
+
+    document.querySelectorAll('.lang-option').forEach(option => {
+      option.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const lang = this.dataset.lang;
+        setLanguage(lang);
+        languageDropdown.classList.remove('show');
+      });
+    });
+
+    // 点击其他地方关闭下拉菜单
+    document.addEventListener('click', function() {
+      languageDropdown.classList.remove('show');
+    });
+
+    // 初始化语言
+    setLanguage(currentLang);
+  </script>
 </body>
 </html>
