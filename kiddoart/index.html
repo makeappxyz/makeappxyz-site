@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KiddoArt - Where Every Child is an Artist! ✨</title>
+  <meta name="description" content="KiddoArt is a magical drawing and storytelling app for kids! Draw, create stories, and bring your imagination to life with AI-powered adventures!">
+  <meta property="og:title" content="KiddoArt - Magical Drawing & Storytelling for Kids">
+  <meta property="og:description" content="Draw, create stories, and let your imagination soar! The perfect creative app for children ages 3-12.">
+  <meta property="og:image" content="https://www.makexyz.app/kiddoart/app_logo.png">
+  <meta property="og:type" content="website">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="/kiddoart/app_logo.png">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --sunny-yellow: #F2BF00;
+      --grass-green: #4DBF33;
+      --sky-blue: #33A6F2;
+      --peach-pink: #F25980;
+      --playful-orange: #F28019;
+      --dream-purple: #9933E6;
+      --soft-white: #FAF8F2;
+      --warm-gray: #736B61;
+      --text-primary: #262626;
+      --text-secondary: #736B61;
+      --background: #FDFBF2;
+      --card-background: rgba(255, 255, 255, 0.9);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+
+    @keyframes rainbow {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-10px) rotate(5deg); }
+      75% { transform: translateY(10px) rotate(-5deg); }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Apple Color Emoji", sans-serif;
+      background: linear-gradient(135deg, #FFE5B4 0%, #FFD4E5 25%, #E5F0FF 50%, #F0E5FF 75%, #FFE5E5 100%);
+      background-size: 400% 400%;
+      animation: rainbow 20s ease infinite;
+      min-height: 100vh;
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Floating background elements */
+    .background-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .shape {
+      position: absolute;
+      opacity: 0.15;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .shape.star {
+      font-size: 60px;
+      animation-delay: 0s;
+    }
+
+    .shape.heart {
+      font-size: 50px;
+      animation-delay: 2s;
+    }
+
+    .shape.circle {
+      font-size: 70px;
+      animation-delay: 4s;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 3px solid var(--sunny-yellow);
+      z-index: 1000;
+      padding: 16px 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      animation: wiggle 0.5s ease;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(153, 51, 230, 0.3);
+    }
+
+    .logo-text {
+      font-size: 1.8em;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--dream-purple), var(--sky-blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 1.1em;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--dream-purple);
+      transform: translateY(-2px);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--sunny-yellow), var(--playful-orange));
+      color: white;
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-weight: 800;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(242, 128, 25, 0.4);
+      font-size: 1.1em;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 10px 30px rgba(242, 128, 25, 0.5);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 160px 20px 100px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      animation: slideInUp 1s ease;
+    }
+
+    .hero-emoji {
+      font-size: 120px;
+      margin-bottom: 20px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    h1 {
+      font-size: 5em;
+      margin-bottom: 24px;
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 1.1;
+      background: linear-gradient(135deg, var(--peach-pink), var(--sunny-yellow), var(--sky-blue), var(--dream-purple));
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow 5s ease infinite;
+    }
+
+    .tagline {
+      font-size: 2em;
+      margin-bottom: 24px;
+      font-weight: 800;
+      color: var(--dream-purple);
+      text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.7);
+    }
+
+    .hero-description {
+      font-size: 1.4em;
+      margin-bottom: 48px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      font-weight: 600;
+    }
+
+    .cta-container {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 40px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.3em;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--sky-blue), var(--dream-purple));
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(51, 166, 242, 0.5);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--dream-purple);
+      border: 4px solid var(--dream-purple);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-6px) scale(1.05);
+      background: var(--dream-purple);
+      color: white;
+    }
+
+    .age-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--grass-green), var(--sky-blue));
+      color: white;
+      padding: 12px 30px;
+      border-radius: 100px;
+      font-size: 1.3em;
+      font-weight: 800;
+      box-shadow: 0 6px 20px rgba(77, 191, 51, 0.3);
+    }
+
+    /* Features Section */
+    .features {
+      padding: 100px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 4em;
+      margin-bottom: 60px;
+      font-weight: 900;
+      color: var(--dream-purple);
+      text-shadow: 3px 3px 0 rgba(255, 255, 255, 0.7);
+      letter-spacing: -2px;
+    }
+
+    .feature-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .feature-card {
+      background: var(--card-background);
+      padding: 40px;
+      border-radius: 32px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      border: 4px solid transparent;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-12px) rotate(-2deg);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      border-color: var(--sky-blue);
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--sunny-yellow), var(--peach-pink), var(--sky-blue), var(--dream-purple));
+    }
+
+    .feature-icon {
+      font-size: 80px;
+      margin-bottom: 24px;
+      animation: bounce 3s ease-in-out infinite;
+    }
+
+    .feature-title {
+      font-size: 1.8em;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+      font-weight: 900;
+    }
+
+    .feature-desc {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+
+    /* Characters Section */
+    .characters {
+      padding: 100px 20px;
+      background: rgba(255, 255, 255, 0.7);
+      position: relative;
+      z-index: 1;
+    }
+
+    .character-grid {
+      max-width: 1000px;
+      margin: 60px auto 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 24px;
+    }
+
+    .character-card {
+      background: white;
+      padding: 24px;
+      border-radius: 24px;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      border: 3px solid var(--sunny-yellow);
+    }
+
+    .character-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      animation: wiggle 0.5s ease;
+    }
+
+    .character-emoji {
+      font-size: 60px;
+      margin-bottom: 12px;
+    }
+
+    .character-name {
+      font-size: 1.2em;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    /* Download Section */
+    .download {
+      padding: 120px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, var(--dream-purple), var(--sky-blue));
+      position: relative;
+      z-index: 1;
+    }
+
+    .download h2 {
+      font-size: 4em;
+      margin-bottom: 32px;
+      color: white;
+      font-weight: 900;
+      text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .download p {
+      font-size: 1.6em;
+      color: white;
+      margin-bottom: 48px;
+      font-weight: 700;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--text-primary);
+      color: white;
+      padding: 60px 20px 40px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2em;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--sunny-yellow);
+      transform: translateY(-3px);
+    }
+
+    .footer-copyright {
+      color: var(--warm-gray);
+      font-size: 1em;
+      font-weight: 600;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+    }
+
+    .menu-icon {
+      width: 30px;
+      height: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .menu-icon span {
+      display: block;
+      height: 4px;
+      background: var(--dream-purple);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-toggle.active .menu-icon span:nth-child(1) {
+      transform: rotate(45deg) translateY(10px);
+    }
+
+    .mobile-menu-toggle.active .menu-icon span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-toggle.active .menu-icon span:nth-child(3) {
+      transform: rotate(-45deg) translateY(-10px);
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 82px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      padding: 24px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      border-bottom: 3px solid var(--sunny-yellow);
+    }
+
+    .mobile-nav.active {
+      display: block;
+      animation: slideInDown 0.3s ease;
+    }
+
+    @keyframes slideInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .mobile-nav a {
+      display: block;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 1.4em;
+      font-weight: 700;
+      padding: 16px;
+      margin-bottom: 8px;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .mobile-nav a:hover {
+      background: var(--dream-purple);
+      color: white;
+      transform: translateX(8px);
+    }
+
+    .mobile-nav .nav-cta {
+      background: linear-gradient(135deg, var(--sunny-yellow), var(--playful-orange));
+      color: white;
+      margin-top: 16px;
+    }
+
+    /* Tablet Responsive */
+    @media (max-width: 1024px) {
+      h1 {
+        font-size: 4em;
+      }
+
+      .tagline {
+        font-size: 1.8em;
+      }
+
+      .hero-description {
+        font-size: 1.2em;
+      }
+
+      .section-title {
+        font-size: 3em;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .character-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 12px 16px;
+      }
+
+      .logo-icon {
+        width: 44px;
+        height: 44px;
+      }
+
+      .logo-text {
+        font-size: 1.4em;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+      }
+
+      .hero {
+        padding: 140px 20px 80px;
+      }
+
+      .hero-emoji {
+        font-size: 80px;
+      }
+
+      h1 {
+        font-size: 2.8em;
+        letter-spacing: -2px;
+      }
+
+      .tagline {
+        font-size: 1.4em;
+      }
+
+      .hero-description {
+        font-size: 1.1em;
+        margin-bottom: 32px;
+      }
+
+      .section-title {
+        font-size: 2.2em;
+        letter-spacing: -1px;
+        margin-bottom: 40px;
+      }
+
+      .features,
+      .characters {
+        padding: 60px 16px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .feature-card {
+        padding: 28px;
+        border-radius: 24px;
+      }
+
+      .feature-icon {
+        font-size: 64px;
+        margin-bottom: 16px;
+      }
+
+      .feature-title {
+        font-size: 1.5em;
+      }
+
+      .feature-desc {
+        font-size: 1em;
+      }
+
+      .character-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .character-card {
+        padding: 16px;
+      }
+
+      .character-emoji {
+        font-size: 48px;
+        margin-bottom: 8px;
+      }
+
+      .character-name {
+        font-size: 1em;
+      }
+
+      .download {
+        padding: 80px 20px;
+      }
+
+      .download h2 {
+        font-size: 2.5em;
+        margin-bottom: 24px;
+      }
+
+      .download p {
+        font-size: 1.2em;
+        margin-bottom: 32px;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+        padding: 18px 32px;
+        font-size: 1.2em;
+      }
+
+      .age-badge {
+        font-size: 1.1em;
+        padding: 10px 24px;
+      }
+
+      .cta-container {
+        gap: 16px;
+        margin-bottom: 40px;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .footer-link {
+        font-size: 1.1em;
+      }
+    }
+
+    /* Small Mobile */
+    @media (max-width: 480px) {
+      .hero-emoji {
+        font-size: 60px;
+      }
+
+      h1 {
+        font-size: 2.2em;
+      }
+
+      .tagline {
+        font-size: 1.2em;
+      }
+
+      .hero-description {
+        font-size: 1em;
+      }
+
+      .section-title {
+        font-size: 1.8em;
+      }
+
+      .feature-card {
+        padding: 24px;
+      }
+
+      .feature-icon {
+        font-size: 52px;
+      }
+
+      .feature-title {
+        font-size: 1.3em;
+      }
+
+      .character-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .character-emoji {
+        font-size: 40px;
+      }
+
+      .download h2 {
+        font-size: 2em;
+      }
+
+      .download p {
+        font-size: 1.1em;
+      }
+
+      .btn {
+        font-size: 1.1em;
+        padding: 16px 28px;
+      }
+
+      .shape {
+        display: none; /* Hide floating shapes on small screens for better performance */
+      }
+    }
+
+    /* Scroll reveal animation */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .scroll-reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Shapes -->
+  <div class="background-shapes">
+    <div class="shape star" style="top: 10%; left: 10%;">⭐</div>
+    <div class="shape heart" style="top: 20%; right: 15%;">❤️</div>
+    <div class="shape circle" style="bottom: 30%; left: 20%;">🎨</div>
+    <div class="shape star" style="bottom: 15%; right: 10%;">✨</div>
+    <div class="shape heart" style="top: 60%; left: 5%;">🌈</div>
+    <div class="shape circle" style="top: 40%; right: 5%;">🎉</div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="/kiddoart/" class="logo">
+        <img src="/kiddoart/app_logo.png" alt="KiddoArt" class="logo-icon">
+        <span class="logo-text">KiddoArt</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#characters" class="nav-link">Characters</a>
+        <a href="#download" class="nav-cta">Download Now! 🎉</a>
+      </div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">
+        <div class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#features">Features</a>
+    <a href="#characters">Characters</a>
+    <a href="#download" class="nav-cta">Download Now! 🎉</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-emoji">🎨✨</div>
+      <h1>KiddoArt</h1>
+      <p class="tagline">Where Every Child is an Artist! ✨</p>
+      <p class="hero-description">
+        Draw magical pictures, create amazing stories, and bring your imagination to life!
+        The perfect creative playground for kids ages 3-12! 🌈
+      </p>
+
+      <div class="cta-container">
+        <a href="https://apps.apple.com/us/app/kiddoart/id6753725208" class="btn btn-primary">
+          <span>📱</span>
+          <span>Download Free!</span>
+        </a>
+        <a href="#features" class="btn btn-secondary">
+          <span>🌟</span>
+          <span>See Magic!</span>
+        </a>
+      </div>
+
+      <div class="age-badge">
+        Perfect for Ages 3-12! 🎯
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features scroll-reveal">
+    <h2 class="section-title">Amazing Features! 🌟</h2>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🖍️</div>
+        <h3 class="feature-title">Drawing Magic</h3>
+        <p class="feature-desc">
+          Draw with crayons, markers, and pencils! Choose from a rainbow of colors and create masterpieces with your fingertips!
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📖</div>
+        <h3 class="feature-title">Story Creator</h3>
+        <p class="feature-desc">
+          Pick your favorite characters and themes! AI helps you create magical stories with beautiful illustrations!
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎭</div>
+        <h3 class="feature-title">12 Fun Characters</h3>
+        <p class="feature-desc">
+          Meet Bunny, Bear, Dragon, Unicorn, and more! Each character has their own special adventures waiting for you!
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3 class="feature-title">12 Amazing Themes</h3>
+        <p class="feature-desc">
+          Explore space, dive into oceans, visit castles, and more! Every theme is a new adventure!
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔊</div>
+        <h3 class="feature-title">Story Reader</h3>
+        <p class="feature-desc">
+          Listen to your stories read aloud! Perfect for bedtime or quiet time. Play, pause, and enjoy!
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🖼️</div>
+        <h3 class="feature-title">Your Art Gallery</h3>
+        <p class="feature-desc">
+          Keep all your masterpieces safe! Look back at your artwork anytime and share with family!
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3 class="feature-title">Super Safe</h3>
+        <p class="feature-desc">
+          Parents love us! No ads, no tracking, no strangers. Everything stays on your device. 100% kid-safe!
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">☁️</div>
+        <h3 class="feature-title">Magic Cloud Sync</h3>
+        <p class="feature-desc">
+          Your stories follow you everywhere! Draw on iPad, read on iPhone. iCloud keeps everything in sync!
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🌈</div>
+        <h3 class="feature-title">Easy & Fun</h3>
+        <p class="feature-desc">
+          Big colorful buttons, simple menus, and emoji everywhere! Made just for kids - no reading required!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Characters Section -->
+  <section id="characters" class="characters scroll-reveal">
+    <h2 class="section-title">Meet Your Story Friends! 🎭</h2>
+
+    <div class="character-grid">
+      <div class="character-card">
+        <div class="character-emoji">🐰</div>
+        <div class="character-name">Bunny</div>
+      </div>
+      <div class="character-card">
+        <div class="character-emoji">🐻</div>
+        <div class="character-name">Bear</div>
+      </div>
+      <div class="character-card">
+        <div class="character-emoji">🐱</div>
+        <div class="character-name">Cat</div>
+      </div>
+      <div class="character-card">
+        <div class="character-emoji">🐶</div>
+        <div class="character-name">Dog</div>
+      </div>
+      <div class="character-card">
+        <div class="character-emoji">🦊</div>
+        <div class="character-name">Fox</div>
+      </div>
+      <div class="character-card">
+        <div class="character-emoji">🦄</div>
+        <div class="character-name">Unicorn</div>
+      </div>
+      <div class="character-card">
+        <div class="character-emoji">🐉</div>
+        <div class="character-name">Dragon</div>
+      </div>
+      <div class="character-card">
+        <div class="character-emoji">🦖</div>
+        <div class="character-name">Dinosaur</div>
+      </div>
+      <div class="character-card">
+        <div class="character-emoji">👨‍🚀</div>
+        <div class="character-name">Astronaut</div>
+      </div>
+      <div class="character-card">
+        <div class="character-emoji">👸</div>
+        <div class="character-name">Princess</div>
+      </div>
+      <div class="character-card">
+        <div class="character-emoji">🏴‍☠️</div>
+        <div class="character-name">Pirate</div>
+      </div>
+      <div class="character-card">
+        <div class="character-emoji">🤖</div>
+        <div class="character-name">Robot</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section id="download" class="download">
+    <h2>Ready to Create Magic? ✨</h2>
+    <p>Download KiddoArt now and start your creative adventure today!</p>
+
+    <div class="cta-container">
+      <a href="https://apps.apple.com/us/app/kiddoart/id6753725208" class="btn btn-primary" style="background: white; color: var(--dream-purple);">
+        <span>🎉</span>
+        <span>Download Free Now!</span>
+      </a>
+    </div>
+
+    <p style="margin-top: 40px; font-size: 1.2em;">
+      Available for iPhone & iPad • iOS 18.0+ 📱
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="/kiddoart/privacy-policy.html" class="footer-link">Privacy Policy</a>
+      <a href="/kiddoart/terms-of-service.html" class="footer-link">Terms of Service</a>
+      <a href="mailto:support@kiddoart.app" class="footer-link">Contact Us</a>
+    </div>
+
+    <p class="footer-copyright">
+      © 2025 KiddoArt. Made with ❤️ for creative kids everywhere! 🌈✨
+    </p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+
+    mobileMenuToggle.addEventListener('click', function() {
+      this.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!mobileNav.contains(event.target) &&
+          !mobileMenuToggle.contains(event.target) &&
+          mobileNav.classList.contains('active')) {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Scroll reveal animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

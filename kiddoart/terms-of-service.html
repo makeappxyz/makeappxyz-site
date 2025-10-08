@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service - KiddoArt</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --sunny-yellow: #F2BF00;
+      --grass-green: #4DBF33;
+      --sky-blue: #33A6F2;
+      --peach-pink: #F25980;
+      --dream-purple: #9933E6;
+      --text-primary: #262626;
+      --text-secondary: #736B61;
+      --background: #FDFBF2;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(135deg, #FFE5B4 0%, #FFD4E5 50%, #E5F0FF 100%);
+      min-height: 100vh;
+      color: var(--text-primary);
+      line-height: 1.8;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .header {
+      background: white;
+      padding: 40px;
+      border-radius: 32px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+      text-align: center;
+      border-top: 6px solid var(--sky-blue);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .logo-text {
+      font-size: 2.5em;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--dream-purple), var(--sky-blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: var(--sky-blue);
+      margin-bottom: 16px;
+      font-weight: 900;
+    }
+
+    .last-updated {
+      color: var(--text-secondary);
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+
+    .content {
+      background: white;
+      padding: 48px;
+      border-radius: 32px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
+
+    .intro {
+      background: linear-gradient(135deg, rgba(51, 166, 242, 0.1), rgba(153, 51, 230, 0.1));
+      padding: 32px;
+      border-radius: 24px;
+      margin-bottom: 40px;
+      border-left: 6px solid var(--sky-blue);
+    }
+
+    .intro p {
+      font-size: 1.3em;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.8;
+    }
+
+    .section {
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-size: 2em;
+      color: var(--sky-blue);
+      margin-bottom: 24px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon {
+      font-size: 1.2em;
+    }
+
+    p {
+      font-size: 1.15em;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 24px;
+    }
+
+    li {
+      font-size: 1.15em;
+      margin-bottom: 16px;
+      padding-left: 40px;
+      position: relative;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    li::before {
+      content: '✨';
+      position: absolute;
+      left: 0;
+      font-size: 1.3em;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(242, 89, 128, 0.1), rgba(242, 191, 0, 0.1));
+      padding: 24px;
+      border-radius: 16px;
+      margin: 24px 0;
+      border-left: 4px solid var(--peach-pink);
+    }
+
+    .warning-box {
+      background: linear-gradient(135deg, rgba(242, 128, 25, 0.1), rgba(242, 191, 0, 0.1));
+      padding: 24px;
+      border-radius: 16px;
+      margin: 24px 0;
+      border-left: 4px solid var(--sunny-yellow);
+    }
+
+    .back-link {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--sky-blue), var(--dream-purple));
+      color: white;
+      padding: 16px 32px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.2em;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(51, 166, 242, 0.3);
+    }
+
+    .back-link:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(51, 166, 242, 0.5);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        padding: 32px 24px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.6em;
+      }
+
+      p, li {
+        font-size: 1.05em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <span style="font-size: 60px;">📜</span>
+        <span class="logo-text">KiddoArt</span>
+      </div>
+      <h1>Terms of Service</h1>
+      <p class="last-updated">Last Updated: January 2025</p>
+    </div>
+
+    <div class="content">
+      <div class="intro">
+        <p>
+          👋 Welcome to KiddoArt! By using our app, you agree to these Terms of Service.
+          We've written them in simple language so everyone can understand. If you don't agree,
+          please don't use the app. Let's make sure we're all on the same page! 🌈
+        </p>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">📱</span> About KiddoArt</h2>
+        <p>KiddoArt is a creative app designed for children that provides:</p>
+        <ul>
+          <li>Fun drawing and painting tools</li>
+          <li>AI-powered story generation (requires iOS 18.2+)</li>
+          <li>Beautiful story illustrations (requires iOS 18.2+)</li>
+          <li>Local and optional iCloud storage for creations</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">👶</span> Age & Supervision</h2>
+        <ul>
+          <li>KiddoArt is designed for children ages 3-12</li>
+          <li>The app should be used under parental supervision</li>
+          <li>Parents or guardians must review and agree to these terms</li>
+          <li>For AI features, Apple's requirements apply (iOS 18.2+)</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">✅</span> How to Use KiddoArt</h2>
+        <p>You agree to:</p>
+        <ul>
+          <li>Use the app for creative and educational purposes</li>
+          <li>Supervise children's use of the app</li>
+          <li>Not attempt to modify or reverse engineer the app</li>
+          <li>Use the app only for lawful purposes</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">🎨</span> Your Child's Creations</h2>
+        <div class="highlight-box">
+          <p style="margin-bottom: 16px;"><strong>Great news! Your child owns their art! 🎉</strong></p>
+          <ul>
+            <li>All drawings and stories created by users remain THEIR property</li>
+            <li>You grant us NO rights to your child's content</li>
+            <li>We do NOT access, view, or use your content</li>
+            <li>Your child's creations are theirs to keep forever!</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">🤖</span> AI Features</h2>
+        <p>Our AI-powered features use Apple's on-device technology:</p>
+        <ul>
+          <li><strong>Foundation Models:</strong> For story generation (iOS 18.2+)</li>
+          <li><strong>Image Playground:</strong> For story illustrations (iOS 18.2+)</li>
+          <li>All AI processing happens locally on your device</li>
+          <li>Subject to Apple's terms and availability</li>
+        </ul>
+
+        <div class="warning-box">
+          <p style="margin-bottom: 12px;"><strong>⚠️ AI Content Disclaimer:</strong></p>
+          <p>
+            AI-generated stories and illustrations are created by Apple's on-device AI.
+            While we strive for quality content, AI may occasionally produce unexpected results.
+            Parents should review AI-generated content before sharing with children.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">☁️</span> iCloud Sync</h2>
+        <ul>
+          <li>iCloud sync is optional and uses Apple's iCloud service</li>
+          <li>Subject to Apple's iCloud Terms of Service</li>
+          <li>We have no control over or access to your iCloud data</li>
+          <li>Apple's storage limits and charges may apply</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">⚖️</span> Disclaimer</h2>
+        <p>
+          KiddoArt is provided "as is" without warranties of any kind. We do our best to make
+          the app work perfectly, but we cannot guarantee:
+        </p>
+        <ul>
+          <li>Uninterrupted or error-free operation</li>
+          <li>Perfect accuracy of AI-generated content</li>
+          <li>Compatibility with all devices</li>
+          <li>Availability of all features at all times</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">🔄</span> Updates & Changes</h2>
+        <ul>
+          <li>We may update these Terms from time to time</li>
+          <li>Continued use of the app means you accept the new terms</li>
+          <li>Major changes will be communicated through app updates</li>
+          <li>We may discontinue features or the app at any time</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">📬</span> Contact Us</h2>
+        <p>
+          Have questions about these Terms? We're here to help!
+        </p>
+        <p>
+          <strong>Email:</strong> <a href="mailto:support@kiddoart.app" style="color: var(--sky-blue); text-decoration: none; font-weight: 700;">support@kiddoart.app</a>
+        </p>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">🙏</span> Acknowledgments</h2>
+        <p>KiddoArt uses these amazing Apple technologies:</p>
+        <ul>
+          <li>PencilKit for drawing tools</li>
+          <li>Foundation Models for story generation (iOS 18.2+)</li>
+          <li>Image Playground for illustrations (iOS 18.2+)</li>
+          <li>iCloud for optional sync</li>
+        </ul>
+        <p>All Apple technologies are used in accordance with Apple's terms and conditions.</p>
+      </div>
+
+      <div class="highlight-box" style="border-left-color: var(--grass-green);">
+        <p style="font-size: 1.2em; font-weight: 700; margin-bottom: 12px;">
+          <strong>✨ By using KiddoArt:</strong>
+        </p>
+        <p style="font-size: 1.1em; margin-bottom: 0;">
+          You acknowledge that you have read and understood these Terms of Service and agree to be bound by them.
+          Thank you for trusting us with your child's creative journey! 🎨❤️
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <a href="/kiddoart/" class="back-link">
+        ← Back to Home
+      </a>
+    </div>
+  </div>
+</body>
+</html>
