@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Linguist</title>
+  <meta name="description" content="Linguist Privacy Policy - Learn how we protect your data with 100% on-device processing">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #ffffff;
+      min-height: 100vh;
+      color: #0F172A;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      z-index: 1000;
+      padding: 16px 20px;
+    }
+
+    .navbar-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #0F172A;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #6366F1, #8B5CF6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .logo-text {
+      font-size: 1.3em;
+      font-weight: 600;
+      background: linear-gradient(135deg, #6366F1, #8B5CF6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-link {
+      color: #64748B;
+      text-decoration: none;
+      font-size: 0.95em;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: #0F172A;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 100px 20px 60px;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 12px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: #0F172A;
+    }
+
+    .last-updated {
+      color: #64748B;
+      font-size: 0.9em;
+      margin-bottom: 48px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section h2 {
+      font-size: 1.5em;
+      margin-bottom: 16px;
+      color: #0F172A;
+      font-weight: 700;
+    }
+
+    .section p {
+      color: #475569;
+      margin-bottom: 16px;
+    }
+
+    .footer {
+      margin-top: 80px;
+      padding: 40px 20px;
+      background: #F8FAFC;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      color: #64748B;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #0F172A;
+    }
+
+    .copyright {
+      color: #94A3B8;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .container {
+        padding-top: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="/linguist/" class="logo">
+        <div class="logo-icon">L</div>
+        <span class="logo-text">Linguist</span>
+      </a>
+      <a href="/linguist/" class="nav-link">Back to Home</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last updated: January 2025</p>
+
+    <div class="section">
+      <h2>Data Collection</h2>
+      <p>
+        Linguist is designed with privacy as a core principle. We do not collect, store, or transmit any of your personal data, text, or translations. The application operates entirely offline on your device.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>100% Local Processing</h2>
+      <p>
+        All translation processing occurs locally on your Mac using Apple's MLX framework and the TranslateGemma model. Your source text and translations never leave your device and are never transmitted to any server.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>No Cloud Dependency</h2>
+      <p>
+        Unlike cloud-based translation services, Linguist requires no internet connection to function. There are no external API calls, no cloud inference, and no data synchronization with remote servers.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>No Account Required</h2>
+      <p>
+        Linguist does not require any account creation, sign-up, or login. There is no user authentication system and therefore no personal information is ever collected or stored.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Translation History</h2>
+      <p>
+        Translation history is stored locally on your device using SwiftData. This data remains entirely on your Mac and is never shared or synchronized with any external service. You can delete this history at any time from within the application.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Model Storage</h2>
+      <p>
+        The TranslateGemma model files are downloaded once from official sources (HuggingFace/Kaggle) and stored locally on your device. After the initial download, no further network communication is required.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>No Analytics or Tracking</h2>
+      <p>
+        Linguist does not include any analytics SDKs, crash reporting services, or tracking mechanisms. We have no way to know how you use the application or what you translate.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Contact</h2>
+      <p>
+        If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:sudoku42game@gmail.com">sudoku42game@gmail.com</a>
+      </p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="/linguist/">Home</a>
+        <a href="/linguist/terms-of-service.html">Terms of Service</a>
+        <a href="mailto:sudoku42game@gmail.com">Contact</a>
+      </div>
+      <p class="copyright">2025 Linguist. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
