@@ -38,14 +38,16 @@
   }
   function renderEditorial(c) {
     const article = $('#description');
+    const notice = $('#catalog-preview');
+    if (notice) notice.textContent = c.previewNote;
     const fragment = document.createDocumentFragment();
     const lede = paragraph(c.paragraphs[0]);
     lede.className = 'story-lede';
     fragment.append(lede);
     const samples = [
-      ['cherry-peach.jpg', 'PEACH 160', 1600, 1066],
-      ['tower-flint.jpg', 'FLINT 100', 1600, 1066],
-      ['plane-honey.jpg', 'HONEY 200', 1600, 1200]
+      ['cherry-mint.jpg', 'MINT 400', 1600, 1066],
+      ['tower-midnight.jpg', 'MIDNIGHT 400', 1600, 1066],
+      ['plane-ridge.jpg', 'RIDGE 100', 1600, 1200]
     ];
     samples.forEach(([file, stock, width, height], index) => {
       const section = document.createElement('section');
