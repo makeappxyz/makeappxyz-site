@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#f3f0e8">
+  <meta name="theme-color" content="#191b1a">
   <title>Emulsion: Film Camera — Emulsion</title>
   <meta name="description" content="フィルムを選び、構図を決め、自分の色に現像する。マニュアル操作とライブプレビューを備えた、ポケットの中の暗室。">
   <link rel="stylesheet" href="/emulsion/site.css">
@@ -12,8 +12,9 @@
 </head>
 <body data-page="product">
   <div class="page">
-    <header>
+    <header class="nav-pill">
       <a href="/emulsion/" class="brand" aria-label="Emulsion">Emulsion</a>
+      <a id="nav-samples" href="#description">フィルム作例を見る</a>
       <select id="language" aria-label="Language">
         <option value="ja">日本語</option><option value="en-US">English</option>
         <option value="zh-Hans">简体中文</option><option value="zh-Hant">繁體中文</option>
@@ -22,14 +23,23 @@
       </select>
     </header>
     <main>
-      <div class="masthead" aria-hidden="true"><p>Emulsion</p><span>Film camera<br>&amp; pocket darkroom</span></div>
-      <figure class="hero-photo">
-        <img src="/emulsion/assets/city-honey.jpg" width="1600" height="1200" fetchpriority="high" alt="City photograph processed with Emulsion Honey 200">
-        <figcaption><span>HONEY 200</span><span>EMULSION FILM SAMPLE</span></figcaption>
-      </figure>
-      <section class="introduction" aria-labelledby="title">
-        <div><p id="release-status" class="status">公開準備中 · iPhone / iPad</p><h1 id="title">マニュアル撮影とフィルム暗室</h1></div>
-        <p id="intro" class="intro">フィルムを選び、構図を決め、自分の色に現像する。マニュアル操作とライブプレビューを備えた、ポケットの中の暗室。</p>
+      <section class="hero-studio" aria-labelledby="title">
+        <div class="hero-copy">
+          <div class="masthead"><span>フィルムカメラ
+ポケットの中の暗室</span></div>
+          <h1 id="title">いつもの光を、
+自分の色に。</h1>
+          <p id="intro" class="intro">フィルムを選び、構図を決め、自分の色に現像する。マニュアル操作とライブプレビューを備えた、ポケットの中の暗室。</p>
+          <div class="hero-actions">
+            <a id="beta-link" class="cta" href="https://testflight.apple.com/join/21nFVGJx"><span>TestFlight で試す</span><span aria-hidden="true">↗</span></a>
+            <a id="explore-link" class="text-link" href="#description"><span>フィルム作例を見る</span><span aria-hidden="true">↓</span></a>
+          </div>
+          <p id="release-status" class="status">公開準備中 · iPhone / iPad</p>
+        </div>
+        <figure class="hero-photo">
+          <img src="/emulsion/assets/city-honey.jpg" width="1600" height="1200" fetchpriority="high" alt="Honey 200 で現像した街の写真">
+          <figcaption><span>HONEY 200</span><span>Emulsion フィルム作例</span></figcaption>
+        </figure>
       </section>
       <article id="description" data-editorial>
         <p>Emulsion は、フィルム写真のリズムを iPhone に届けます。フィルムを選び、構図を決め、暗室で写真を仕上げましょう。</p>
@@ -41,6 +51,7 @@
       </article>
     </main>
     <footer>
+      <p id="closing" class="footer-statement">選ぶ。撮る。現像する。</p>
       <p class="footer-wordmark">Emulsion</p>
       <div class="footer-links"><a id="support-link" href="/emulsion/support.html">サポート</a><a id="privacy-link" href="/emulsion/privacy-policy.html">プライバシーポリシー</a><a id="terms-link" href="/emulsion/terms-of-service.html">利用規約</a></div>
       <span>© 2026 HIROMOTO TSUJI</span>

@@ -35,7 +35,11 @@ window.EMULSION_SITE = {
         "Make the frame.",
         "Find your film.",
         "Your pocket darkroom."
-      ]
+      ],
+      "heroTitle": "Everyday light.\nYour own colour.",
+      "beta": "Try on TestFlight",
+      "explore": "Explore the film samples",
+      "closing": "Choose. Capture. Develop."
     }
   },
   "de-DE": {
@@ -74,7 +78,11 @@ window.EMULSION_SITE = {
         "Eine Kamera unter deiner Kontrolle",
         "Filme mit Charakter",
         "Deine mobile Dunkelkammer"
-      ]
+      ],
+      "heroTitle": "Alltägliches Licht.\nDeine eigenen Farben.",
+      "beta": "Mit TestFlight testen",
+      "explore": "Filmbeispiele ansehen",
+      "closing": "Wählen. Aufnehmen. Entwickeln."
     }
   },
   "zh-Hans": {
@@ -113,7 +121,11 @@ window.EMULSION_SITE = {
         "掌握你的光线。",
         "找到你的胶片。",
         "口袋里的暗房。"
-      ]
+      ],
+      "heroTitle": "日常的光，\n自己的颜色。",
+      "beta": "加入 TestFlight 测试",
+      "explore": "查看胶片样片",
+      "closing": "选一卷。拍一张。慢慢显影。"
     }
   },
   "fr-FR": {
@@ -152,7 +164,11 @@ window.EMULSION_SITE = {
         "Un appareil que vous maîtrisez",
         "Des films de caractère",
         "Votre labo de poche"
-      ]
+      ],
+      "heroTitle": "La lumière du quotidien.\nVos propres couleurs.",
+      "beta": "Essayer sur TestFlight",
+      "explore": "Voir les exemples",
+      "closing": "Choisir. Cadrer. Révéler."
     }
   },
   "ko": {
@@ -191,7 +207,11 @@ window.EMULSION_SITE = {
         "내 손으로 조절하는 카메라",
         "개성 있는 필름",
         "주머니 속 암실"
-      ]
+      ],
+      "heroTitle": "일상의 빛을,\n나만의 색으로.",
+      "beta": "TestFlight에서 체험",
+      "explore": "필름 샘플 보기",
+      "closing": "고르고. 찍고. 현상하고."
     }
   },
   "ja": {
@@ -230,7 +250,11 @@ window.EMULSION_SITE = {
         "光を、思いのままに。",
         "自分の色を見つける。",
         "ポケットの中の暗室。"
-      ]
+      ],
+      "heroTitle": "いつもの光を、\n自分の色に。",
+      "beta": "TestFlight で試す",
+      "explore": "フィルム作例を見る",
+      "closing": "選ぶ。撮る。現像する。"
     }
   },
   "es-ES": {
@@ -269,7 +293,11 @@ window.EMULSION_SITE = {
         "Una cámara que controlas",
         "Películas con carácter",
         "Tu cuarto oscuro de bolsillo"
-      ]
+      ],
+      "heroTitle": "La luz de cada día.\nTus propios colores.",
+      "beta": "Probar en TestFlight",
+      "explore": "Ver las muestras",
+      "closing": "Elegir. Capturar. Revelar."
     }
   },
   "zh-Hant": {
@@ -308,7 +336,11 @@ window.EMULSION_SITE = {
         "掌握你的光線。",
         "找到你的底片。",
         "口袋裡的暗房。"
-      ]
+      ],
+      "heroTitle": "日常的光，\n自己的顏色。",
+      "beta": "加入 TestFlight 測試",
+      "explore": "查看底片樣片",
+      "closing": "選一卷。拍一張。慢慢顯影。"
     }
   }
 };

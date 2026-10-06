@@ -87,7 +87,7 @@
     document.documentElement.lang = locale;
     select.value = locale;
     document.title = (support ? u[1] : c.title) + ' — Emulsion';
-    $('#title').textContent = support ? u[1] : c.title;
+    $('#title').textContent = support ? u[1] : c.display.heroTitle;
     $('#intro').textContent = support ? u[3] : c.promo;
     $('#support-link').textContent = u[1];
     $('#support-link').href = '/emulsion/support.html?lang=' + locale;
@@ -99,6 +99,10 @@
       $('#about-link').textContent = u[7];
       $('#about-link').href = '/emulsion/?lang=' + locale;
     } else {
+      $('#beta-link span').textContent = c.display.beta;
+      $('#explore-link span').textContent = c.display.explore;
+      $('#nav-samples').textContent = c.display.explore;
+      $('#closing').textContent = c.display.closing;
       const masthead = $('.masthead span');
       masthead.style.whiteSpace = 'pre-line';
       masthead.textContent = c.display.masthead;
