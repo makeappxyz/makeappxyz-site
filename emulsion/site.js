@@ -101,7 +101,7 @@
       $('#about-link').textContent = u[7];
       $('#about-link').href = '/emulsion/?lang=' + locale;
     } else {
-      $('#beta-link span').textContent = c.display.beta;
+      $('#app-store-link span').textContent = c.display.appStore;
       $('#explore-link span').textContent = c.display.explore;
       $('#nav-samples').textContent = c.display.explore;
       $('#closing').textContent = c.display.closing;

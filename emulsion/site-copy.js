@@ -37,11 +37,11 @@ window.EMULSION_SITE = {
         "Your pocket darkroom."
       ],
       "heroTitle": "Everyday light.\nYour own colour.",
-      "beta": "Try on TestFlight",
       "explore": "Explore the film samples",
-      "closing": "Choose. Capture. Develop."
+      "closing": "Choose. Capture. Develop.",
+      "appStore": "View on the App Store"
     },
-    "previewNote": "V8 preview: these samples use the new film recipes. The current public beta (build 8) uses earlier recipes."
+    "previewNote": "These samples were developed with Emulsion’s V8 film recipes."
   },
   "de-DE": {
     "title": "Filmkamera & Dunkelkammer",
@@ -81,11 +81,11 @@ window.EMULSION_SITE = {
         "Deine mobile Dunkelkammer"
       ],
       "heroTitle": "Alltägliches Licht.\nDeine eigenen Farben.",
-      "beta": "Mit TestFlight testen",
       "explore": "Filmbeispiele ansehen",
-      "closing": "Wählen. Aufnehmen. Entwickeln."
+      "closing": "Wählen. Aufnehmen. Entwickeln.",
+      "appStore": "Im App Store ansehen"
     },
-    "previewNote": "V8-Vorschau: Die Beispiele nutzen die neuen Filmrezepte. Die aktuelle öffentliche Beta (Build 8) nutzt frühere Rezepte."
+    "previewNote": "Diese Beispiele wurden mit den V8-Filmrezepten von Emulsion entwickelt."
   },
   "zh-Hans": {
     "title": "专业手动相机与胶片暗房",
@@ -125,11 +125,11 @@ window.EMULSION_SITE = {
         "口袋里的暗房。"
       ],
       "heroTitle": "日常的光，\n自己的颜色。",
-      "beta": "加入 TestFlight 测试",
       "explore": "查看胶片样片",
-      "closing": "选一卷。拍一张。慢慢显影。"
+      "closing": "选一卷。拍一张。慢慢显影。",
+      "appStore": "前往 App Store"
     },
-    "previewNote": "V8 预览：这些样片使用新版胶片配方。当前公开测试版（构建 8）仍使用旧配方。"
+    "previewNote": "这些样片使用 Emulsion V8 胶片配方处理。"
   },
   "fr-FR": {
     "title": "Photo argentique et labo",
@@ -169,11 +169,11 @@ window.EMULSION_SITE = {
         "Votre labo de poche"
       ],
       "heroTitle": "La lumière du quotidien.\nVos propres couleurs.",
-      "beta": "Essayer sur TestFlight",
       "explore": "Voir les exemples",
-      "closing": "Choisir. Cadrer. Révéler."
+      "closing": "Choisir. Cadrer. Révéler.",
+      "appStore": "Voir sur l’App Store"
     },
-    "previewNote": "Aperçu V8 : les exemples utilisent les nouvelles recettes. La bêta publique actuelle (build 8) utilise les recettes précédentes."
+    "previewNote": "Ces exemples ont été développés avec les recettes de film V8 d’Emulsion."
   },
   "ko": {
     "title": "필름 카메라와 나만의 암실",
@@ -213,11 +213,11 @@ window.EMULSION_SITE = {
         "주머니 속 암실"
       ],
       "heroTitle": "일상의 빛을,\n나만의 색으로.",
-      "beta": "TestFlight에서 체험",
       "explore": "필름 샘플 보기",
-      "closing": "고르고. 찍고. 현상하고."
+      "closing": "고르고. 찍고. 현상하고.",
+      "appStore": "App Store에서 보기"
     },
-    "previewNote": "V8 미리보기: 샘플에는 새 필름 레시피를 사용했습니다. 현재 공개 베타(빌드 8)는 이전 레시피를 사용합니다."
+    "previewNote": "이 샘플은 Emulsion V8 필름 레시피로 현상했습니다."
   },
   "ja": {
     "title": "マニュアル撮影とフィルム暗室",
@@ -257,11 +257,11 @@ window.EMULSION_SITE = {
         "ポケットの中の暗室。"
       ],
       "heroTitle": "いつもの光を、\n自分の色に。",
-      "beta": "TestFlight で試す",
       "explore": "フィルム作例を見る",
-      "closing": "選ぶ。撮る。現像する。"
+      "closing": "選ぶ。撮る。現像する。",
+      "appStore": "App Store で見る"
     },
-    "previewNote": "V8 プレビュー：作例は新しいフィルムレシピで現像しています。現在の公開ベータ（ビルド 8）は以前のレシピです。"
+    "previewNote": "作例は Emulsion の V8 フィルムレシピで現像しています。"
   },
   "es-ES": {
     "title": "Cámara y laboratorio analógico",
@@ -301,11 +301,11 @@ window.EMULSION_SITE = {
         "Tu cuarto oscuro de bolsillo"
       ],
       "heroTitle": "La luz de cada día.\nTus propios colores.",
-      "beta": "Probar en TestFlight",
       "explore": "Ver las muestras",
-      "closing": "Elegir. Capturar. Revelar."
+      "closing": "Elegir. Capturar. Revelar.",
+      "appStore": "Ver en el App Store"
     },
-    "previewNote": "Vista previa V8: las muestras usan las nuevas recetas. La beta pública actual (compilación 8) usa recetas anteriores."
+    "previewNote": "Estas muestras se revelaron con las recetas de película V8 de Emulsion."
   },
   "zh-Hant": {
     "title": "底片相機與口袋暗房",
@@ -345,10 +345,10 @@ window.EMULSION_SITE = {
         "口袋裡的暗房。"
       ],
       "heroTitle": "日常的光，\n自己的顏色。",
-      "beta": "加入 TestFlight 測試",
       "explore": "查看底片樣片",
-      "closing": "選一卷。拍一張。慢慢顯影。"
+      "closing": "選一卷。拍一張。慢慢顯影。",
+      "appStore": "前往 App Store"
     },
-    "previewNote": "V8 預覽：這些樣片使用新版底片配方。目前公開測試版（組建 8）仍使用舊配方。"
+    "previewNote": "這些樣片使用 Emulsion V8 底片配方處理。"
   }
 };
