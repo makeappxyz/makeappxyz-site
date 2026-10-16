@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peel – Sticker photo booth</title>
+  <meta name="description" content="Peel is a photo booth in your iPhone: put stickers in the frame, shoot photos and Live Photos with them, print four-frame strips, and make your own stickers.">
+  <link rel="canonical" href="https://www.makexyz.app/peel/">
+  <link rel="icon" href="/peel/assets/app-icon.png">
+  <meta property="og:title" content="Peel – Sticker photo booth">
+  <meta property="og:description" content="Stickers in the frame, on photos and on Live Photos.">
+  <meta property="og:image" content="https://www.makexyz.app/peel/assets/app-icon.png">
+  <style>
+    :root {
+      --paper: #fff8f0;
+      --ink: #2b2140;
+      --soft: #6d6380;
+      --pink: #f4518d;
+      --pink-soft: #ffe4ec;
+      --butter: #ffd84d;
+      --sky: #6ec7ff;
+      --mint: #70e3c2;
+      --lilac: #b89cff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: ui-rounded, -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .gingham {
+      background-color: #fff3f6;
+      background-image:
+        linear-gradient(90deg, rgba(244, 81, 141, 0.12) 50%, transparent 50%),
+        linear-gradient(rgba(244, 81, 141, 0.12) 50%, transparent 50%);
+      background-size: 56px 56px;
+    }
+    header.hero { padding: 72px 24px 64px; text-align: center; }
+    .icon {
+      width: 132px; height: 132px; border-radius: 30px;
+      box-shadow: 0 0 0 6px #fff, 0 18px 40px rgba(43, 33, 64, 0.2);
+      transform: rotate(-4deg);
+    }
+    h1 { margin: 28px 0 8px; font-size: clamp(2.6rem, 9vw, 4.2rem); letter-spacing: -0.03em; line-height: 1.05; }
+    .tagline { margin: 0 auto; max-width: 560px; font-size: 1.2rem; color: var(--soft); }
+    .store {
+      display: inline-flex; align-items: center; gap: 10px; margin-top: 28px;
+      padding: 14px 26px; border-radius: 999px; background: var(--pink); color: #fff;
+      font-weight: 800; text-decoration: none; box-shadow: 0 0 0 4px #fff, 0 10px 24px rgba(244, 81, 141, 0.35);
+    }
+    main { max-width: 980px; margin: 0 auto; padding: 56px 24px 24px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .card {
+      position: relative; padding: 24px; border-radius: 24px; background: #fff;
+      border: 3px solid var(--ink); box-shadow: 6px 6px 0 var(--ink);
+    }
+    .card:nth-child(odd) { transform: rotate(-0.8deg); }
+    .card:nth-child(even) { transform: rotate(0.8deg); }
+    .card .badge {
+      display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 14px;
+      border: 3px solid var(--ink); font-size: 1.5rem; margin-bottom: 12px;
+    }
+    .card h2 { margin: 0 0 6px; font-size: 1.2rem; }
+    .card p { margin: 0; color: var(--soft); }
+    .note {
+      margin: 48px auto 0; max-width: 720px; padding: 20px 24px; border-radius: 20px;
+      background: var(--pink-soft); color: var(--ink);
+    }
+    .note h2 { margin: 0 0 6px; font-size: 1.1rem; }
+    .note p { margin: 0; }
+    footer { padding: 48px 24px 64px; text-align: center; color: var(--soft); font-size: 0.95rem; }
+    footer a { margin: 0 10px; text-underline-offset: 4px; }
+    @media (prefers-reduced-motion: no-preference) {
+      .icon { animation: bob 3.2s ease-in-out infinite; }
+      @keyframes bob { 50% { transform: rotate(-1deg) translateY(-6px); } }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero gingham">
+    <img class="icon" src="/peel/assets/app-icon.png" alt="Peel app icon">
+    <h1>Peel</h1>
+    <p class="tagline">A photo booth in your iPhone. Put stickers in the frame, and they stay on your photos and your Live Photos.</p>
+    <a class="store" href="https://apps.apple.com/app/id6823683353">Download on the App Store</a>
+  </header>
+
+  <main>
+    <div class="grid">
+      <section class="card">
+        <span class="badge" style="background: var(--pink-soft)">⭐</span>
+        <h2>Stickers in the viewfinder</h2>
+        <p>Drag, pinch and turn hundreds of original stickers on the frame. Ears, glasses and blush follow the face.</p>
+      </section>
+      <section class="card">
+        <span class="badge" style="background: #e3f4ff">🎞️</span>
+        <h2>Live Photos with stickers</h2>
+        <p>Turn on Live, and the stickers move in the short video too.</p>
+      </section>
+      <section class="card">
+        <span class="badge" style="background: #fff4c9">🖼️</span>
+        <h2>Strips and grids</h2>
+        <p>Four shots in a row with a pose before each, on one print. Then doodle on it.</p>
+      </section>
+      <section class="card">
+        <span class="badge" style="background: #e2fbf3">📷</span>
+        <h2>Looks and cameras</h2>
+        <p>Booth, Milk, Pop, Mono and Retro looks; fisheye, Y2K and CCD cameras; backdrops behind people.</p>
+      </section>
+      <section class="card">
+        <span class="badge" style="background: #efe8ff">✂️</span>
+        <h2>Make your own stickers</h2>
+        <p>Cut a pet, a friend or a snack out of a photo, draw a sticker, or type one. Share them to Messages.</p>
+      </section>
+      <section class="card">
+        <span class="badge" style="background: var(--pink-soft)">📱</span>
+        <h2>Made for iPhone Duo</h2>
+        <p>On a table, the booth screen sits over its console. Open, the outer display plays a show that makes kids look at the camera.</p>
+      </section>
+    </div>
+
+    <div class="note">
+      <h2>One optional purchase</h2>
+      <p>Everyone can make 5 stickers of their own. Sticker Maker is a one-time purchase that makes as many as you like. Everything else comes with the app. Photos stay on your iPhone.</p>
+    </div>
+  </main>
+
+  <footer>
+    <a href="/peel/privacy-policy.html">Privacy policy</a>
+    <a href="/peel/terms-of-service.html">Terms of use</a>
+    <a href="mailto:sudoku42game@gmail.com?subject=Peel">Contact</a>
+    <p>© 2026 makexyz</p>
+  </footer>
+</body>
+</html>
