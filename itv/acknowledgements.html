@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acknowledgements - iTV</title>
+  <meta name="description" content="Open-source software in the iTV app.">
+  <link rel="canonical" href="https://www.makexyz.app/itv/acknowledgements.html">
+  <style>
+    * { box-sizing: border-box; }
+    :root { color-scheme: light dark; --paper: #f2f2f0; --ink: #111111; --soft: #5c5c5c; --body: #2e2e2e; --line: #dcdcd9; }
+    @media (prefers-color-scheme: dark) { :root { --paper: #0b0b0b; --ink: #f2f2f0; --soft: #9a9a98; --body: #d6d6d4; --line: #2a2a2a; } }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.7; }
+    main { max-width: 760px; margin: 0 auto; padding: 64px 24px; }
+    header { margin-bottom: 40px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+    .brand { margin: 0 0 12px; font-weight: 600; }
+    h1 { margin: 0 0 12px; font-size: clamp(2rem, 6vw, 3rem); line-height: 1.2; letter-spacing: -0.03em; }
+    h2 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; }
+    p { margin: 0; }
+    .scope, .updated { color: var(--soft); }
+    .updated { margin-top: 8px; font-size: 0.875rem; }
+    section { margin-bottom: 28px; }
+    section p { color: var(--body); }
+    a { color: var(--ink); text-underline-offset: 4px; }
+    a:hover { color: var(--soft); }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+    footer { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); }
+    @media (max-width: 480px) { main { padding: 40px 20px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <article>
+      <header>
+        <p class="brand"><a href="/itv/privacy-policy.html">iTV</a></p>
+        <h1>Acknowledgements</h1>
+        <p class="scope">For the iTV iPhone and iPad app.</p>
+        <p class="updated">Last updated: <time datetime="2026-10-18">October 18, 2026</time></p>
+      </header>
+
+      <section>
+        <h2>FFmpeg</h2>
+        <p>iTV includes FFmpeg 4.3, licensed under the <a href="https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html">GNU Lesser General Public License 2.1</a>. It plays streams that the system player cannot open. FFmpeg ships as separate dynamic frameworks, so it can be replaced. Source: <a href="https://ffmpeg.org/download.html">ffmpeg.org</a>.</p>
+      </section>
+
+      <section>
+        <h2>KSPlayer</h2>
+        <p>iTV includes KSPlayer, licensed under the <a href="https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html">GNU Lesser General Public License 2.1</a>, as a separate dynamic framework. Source: <a href="https://github.com/kingslay/KSPlayer">github.com/kingslay/KSPlayer</a>.</p>
+      </section>
+
+      <section>
+        <h2>OpenSSL</h2>
+        <p>iTV includes OpenSSL, licensed under the <a href="https://www.openssl.org/source/license.html">OpenSSL License</a>. This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit.</p>
+      </section>
+
+      <section>
+        <h2>The Composable Architecture</h2>
+        <p>Copyright Point-Free, Inc. Licensed under the <a href="https://github.com/pointfreeco/swift-composable-architecture/blob/main/LICENSE">MIT License</a>.</p>
+      </section>
+
+      <section>
+        <h2>Realm</h2>
+        <p>Copyright Realm Inc. Licensed under the <a href="https://github.com/realm/realm-swift/blob/master/LICENSE">Apache License 2.0</a>. Used only to read a library from iTV 1.x.</p>
+      </section>
+
+      <section>
+        <h2>Source requests</h2>
+        <p>To get the source of the LGPL parts as used in iTV, write to <a href="mailto:tsuji.hiromoto@gmail.com">tsuji.hiromoto@gmail.com</a>.</p>
+      </section>
+
+      <footer>
+        <p><a href="/itv/privacy-policy.html">Privacy policy</a> · <a href="/itv/terms-of-service.html">Terms of use</a> · <a href="/itv/acknowledgements.html">Acknowledgements</a></p>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
