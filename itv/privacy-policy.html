@@ -34,23 +34,23 @@
       <header>
         <p class="brand"><a href="/itv/privacy-policy.html">iTV</a></p>
         <h1>Privacy policy</h1>
-        <p class="scope">For the iTV iPhone and iPad app.</p>
+        <p class="scope">For iTV on iPhone, iPad and Apple Watch.</p>
         <p class="updated">Last updated: <time datetime="2026-10-18">October 18, 2026</time></p>
       </header>
 
       <section>
         <h2>Summary</h2>
-        <p>iTV plays the TV playlists that you add. iTV has no account and shows no advertisements. We do not sell data, and we do not track you across apps or websites.</p>
+        <p>iTV plays the TV playlists that you add and does not require an iTV account. It shows no advertisements and does not use advertising tracking. iTV stores your library on your device, with optional iCloud Sync and library export. Apple and RevenueCat process purchase-related data to provide, restore and manage iTV Plus, including purchase and subscription analytics.</p>
       </section>
 
       <section>
         <h2>Your library</h2>
-        <p>Your sources, channels, favorites, names, hidden channels, recently watched list, programme guide and settings stay on your device. Passwords for sources are kept in the iOS Keychain. If you delete the app, this data is deleted.</p>
+        <p>Your sources, channels, favorites, names, hidden channels, recently watched list, programme guide and settings are stored on your device. Source, stream and guide URLs can contain provider usernames, passwords or access tokens, and these URLs can remain in the library. A separately entered Xtream password is kept in the iOS Keychain; this does not remove credentials embedded in URLs supplied by your provider.</p>
       </section>
 
       <section>
         <h2>iCloud Sync</h2>
-        <p>If you turn on iCloud Sync, iTV keeps your sources, favorites and names in your private iCloud database, so they are the same on your devices. Apple keeps this data in your Apple Account. We cannot read it.</p>
+        <p>If you turn on iCloud Sync, iTV syncs source configuration and channel preferences, such as favorites, hidden channels and custom names, through your private iCloud database. Synced source and guide URLs can include provider credentials or tokens embedded in those URLs. The separately stored Xtream password is not included in this sync. Channels and programme data are downloaded separately on each device. Apple processes the iCloud data under your Apple Account.</p>
       </section>
 
       <section>
@@ -59,8 +59,33 @@
       </section>
 
       <section>
+        <h2>TV casting</h2>
+        <p>Version 2.1 and later includes Google's Cast SDK for Chromecast and Google TV. Google automatically collects diagnostics, performance and approximate-location data, device identifiers and interactions with Cast controls for analytics and app functionality. The SDK declares that these data are not linked to your identity or used for tracking. The TV you select receives the stream URL and media information so that it can play the stream directly. Stream URLs can include provider credentials or tokens. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
+      </section>
+
+      <section>
+        <h2>SharePlay</h2>
+        <p>When you choose to watch together with SharePlay in version 2.1 or later, Apple's Group Activities services exchange channel identifiers, channel names and current programme information with the session participants. Source URLs and provider credentials are not shared through the SharePlay session. Each participant loads and plays the channel from their own library and needs their own authorized source.</p>
+      </section>
+
+      <section>
         <h2>Purchases</h2>
-        <p>iTV Plus is optional. Apple processes the payment through the App Store, and we receive no payment details. Our purchase service provider, RevenueCat, receives an anonymous app identifier, your purchase history and your subscription status. It uses them to confirm and restore your purchases.</p>
+        <p>iTV Plus offers optional monthly and yearly subscriptions and a lifetime one-time purchase. Apple handles payment through the App Store; iTV and RevenueCat do not receive your card or bank details. iTV uses <a href="https://www.revenuecat.com/">RevenueCat</a> to validate purchases, restore access, maintain Plus entitlements, handle purchase support and analyze purchases and subscriptions. RevenueCat processes a pseudonymous app user ID, purchase and transaction records, product IDs, purchase and renewal dates, entitlement status, and technical app, device and network information. This can include a device vendor identifier and the IP address used for the request. RevenueCat may infer your country from the IP address and states that it discards that address after determining the country. We do not send your library, provider credentials or viewing history to RevenueCat. See <a href="https://www.revenuecat.com/docs/platform-resources/apple-platform-resources/apple-app-privacy">RevenueCat’s data disclosure documentation</a>.</p>
+      </section>
+
+      <section>
+        <h2>Purchase identity and offers</h2>
+        <p>The RevenueCat SDK creates and stores a pseudonymous purchase identity on your device. It does not require an iTV login, name or email address. iTV also keeps the start of its 14-day lifetime-purchase offer in the iOS Keychain. That window starts when you first open version 2.0 on that device, rather than on a worldwide release date. The purchase identity and offer record are separate from your library, and clearing the library does not delete them. The Keychain offer record can remain after an app reinstall. Offer eligibility is not promised to be identical across devices.</p>
+      </section>
+
+      <section>
+        <h2>Purchase data retention and requests</h2>
+        <p>Purchase records are retained to validate and restore entitlements, manage renewals and refunds, provide support and meet applicable legal obligations. They are not deleted by Delete All Data or by removing the app. You can contact <a href="mailto:itv.feedback@gmail.com">itv.feedback@gmail.com</a> to request access to or deletion of purchase-related data, and we can coordinate the request with RevenueCat. We may need a transaction identifier to locate the record. Records that must be kept for legal obligations, disputes or agreement enforcement may be retained. Apple handles its own transaction records and subscription cancellation.</p>
+      </section>
+
+      <section>
+        <h2>Apple Watch</h2>
+        <p>iTV transfers channel and programme information between your paired iPhone and Apple Watch using Apple's WatchConnectivity services. This can include source URLs and credentials or tokens embedded in them. The Watch keeps a local cache for its playback and library features. This information is not sent to RevenueCat.</p>
       </section>
 
       <section>
@@ -75,22 +100,22 @@
 
       <section>
         <h2>Export and delete</h2>
-        <p>In Settings, Export Library makes a file of your library that you can keep. Delete All Data removes your library from the device and from your iCloud.</p>
+        <p>In Settings, Export Library creates a JSON backup. Source and guide URLs in that file may include provider credentials or tokens. You choose where to save or share the file, so keep it private. Delete All Data removes the current library and saved source passwords after iCloud deletion succeeds. If the cloud deletion fails, iTV keeps the local library and shows an error. The action does not erase exported files, device backups or purchase records. Files retained from earlier library migrations may also remain. Removing the app does not cancel a subscription or necessarily remove Keychain or iCloud data.</p>
       </section>
 
       <section>
         <h2>Diagnostic logs</h2>
-        <p>iTV keeps a short log of what it did, such as how long a channel took to open, on your device. The log contains no stream addresses, channel names or passwords. It leaves your device only if you attach it to a feedback email yourself.</p>
+        <p>iTV keeps a short diagnostic log on your device, such as how long a channel took to open. The log is designed to exclude stream addresses, channel names and passwords. It is not uploaded automatically. You can review and choose to attach it when sending a feedback email.</p>
       </section>
 
       <section>
         <h2>Feedback</h2>
-        <p>If you send feedback by email, your address, your message and anything you attach come to us. We use them only to answer you. For privacy questions, write to <a href="mailto:itv.feedback@gmail.com">itv.feedback@gmail.com</a>.</p>
+        <p>If you send feedback by email, your email address and your message come to us. We use them only to answer you. For privacy questions, write to <a href="mailto:itv.feedback@gmail.com">itv.feedback@gmail.com</a>.</p>
       </section>
 
       <section>
         <h2>Children</h2>
-        <p>iTV does not collect personal data from anyone, children included.</p>
+        <p>iTV does not require a name or contact details for playback. The data practices described above also apply when the app is used by a child. For questions or deletion requests concerning a child’s data, contact us at the email address in this policy.</p>
       </section>
 
       <section>
